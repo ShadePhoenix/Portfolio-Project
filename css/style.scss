@@ -1,0 +1,22 @@
+.page-body {
+    &__header {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.nav-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &__btn {
+        min-height: 100px;
+        min-width: 100px;
+        padding: 0px;
+        margin: 5px;
+    }
+}
+
+.footer-nav {
+    display: flex;
+}

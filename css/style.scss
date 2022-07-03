@@ -1,22 +1,146 @@
+@import "partials/fonts";
+@import "partials/colors";
+
+// To-Do
+// Add scroll sections
+
+//Base Styling Changes
+* {
+    color: $space-gate-4;
+    font-family: $SpaceMono;
+    scroll-behavior: smooth;
+}
+
+html {
+    background-image: url(../images/shutterstock_295846730.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    margin: 0 10%;
+}
+
+@mixin flex($justify-content: center, $align-items: center) {
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+@mixin chamfer($chamfer) {
+    clip-path: polygon(
+        $chamfer 0%,
+        calc(100% - $chamfer) 0%,
+        100% $chamfer,
+        100% calc(100% - $chamfer),
+        calc(100% - $chamfer) 100%,
+        $chamfer 100%,
+        0% calc(100% - $chamfer),
+        0% $chamfer
+    );
+}
+
 .page-body {
+    @include chamfer(20px);
+    padding: 15px;
+    background-color: rgba($color: $hyperspace-3, $alpha: 0.6);
     &__header {
-        display: flex;
-        justify-content: space-around;
+        @include flex(space-around);
+    }
+    &__sub-heading {
+        margin: 3px 0;
+        text-align: right;
+    }
+}
+
+@mixin hex($min-height: 100px) {
+    min-height: $min-height;
+    min-width: calc($min-height * 0.875);
+    clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+
+@mixin hex-hover {
+    &:hover {
+        transform: scale(1.1);
+        background-color: rgba($color: $space-gate-4, $alpha: 1);
     }
 }
 
 .nav-bar {
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    &__hex {
+        &-outer {
+            margin: 5px;
+            @include flex();
+            @include hex(130px);
+            background-color: rgba($color: $space-gate-4, $alpha: 0.7);
+            @include hex-hover();
+        }
+        &-inner {
+            @include flex();
+            @include hex(120px);
+            background-image: radial-gradient($hyperspace-4, $hyperspace-1);
+            flex-direction: column;
+        }
+    }
     &__btn {
-        min-height: 100px;
-        min-width: 100px;
-        padding: 0px;
-        margin: 5px;
+        text-decoration: none;
     }
 }
 
-.footer-nav {
-    display: flex;
+.page-body {
+    &__header {
+    }
+    &__section {
+        border-bottom: 3px solid $space-gate-4;
+        font-weight: bolder;
+        padding: 0 10%;
+    }
+    &__section > article {
+        padding: 0 5%;
+    }
+    &__footer {
+        background-color: rgba($color: $hyperspace-1, $alpha: 0.7);
+        padding-left: 10%;
+    }
 }
+
+.section {
+    &__heading {
+        text-indent: 10%;
+        border-bottom: 1px solid $space-gate-4;
+    }
+}
+
+.footer-nav-bar {
+    @include flex(flex-start, flex-start);
+    text-align: center;
+    &__list {
+        text-align: left;
+    }
+}
+
+//hex-grid tutorial
+
+// .hex-grid {
+//     &__list {
+//         display: grid;
+//         list-style-type: none;
+//         padding: 0;
+//         margin: 0;
+//         grid-template-columns: repeat(5, 88px);
+//         grid-template-rows: repeat(4, 100px);
+//     }
+//     &__item {
+//         color: blue;
+//     }
+//     &__content {
+//         position: absolute;
+//         height: 100px;
+//         width: 86.6025px;
+//         color: black;
+//         background-color: white;
+//         clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+//     }
+// }

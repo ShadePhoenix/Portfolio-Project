@@ -1,20 +1,97 @@
+@font-face {
+  font-family: SpaceMono;
+  src: url(../../fonts/Space_Mono/SpaceMono-Regular.ttf);
+}
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
+/* Color Theme Swatches in Hex */
+* {
+  color: #79e6f2;
+  font-family: SpaceMono;
+  scroll-behavior: smooth;
+}
+
+html {
+  background-image: url(../images/shutterstock_295846730.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0 10%;
+}
+
+.page-body {
+  clip-path: polygon(20px 0%, calc(100% - 20px) 0%, 100% 20px, 100% calc(100% - 20px), calc(100% - 20px) 100%, 20px 100%, 0% calc(100% - 20px), 0% 20px);
+  padding: 15px;
+  background-color: rgba(16, 41, 64, 0.6);
+}
 .page-body__header {
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+.page-body__sub-heading {
+  margin: 3px 0;
+  text-align: right;
 }
 
 .nav-bar {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
-.nav-bar__btn {
-  min-height: 100px;
-  min-width: 100px;
-  padding: 0px;
+.nav-bar__hex-outer {
   margin: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 130px;
+  min-width: 113.75px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-color: rgba(121, 230, 242, 0.7);
+}
+.nav-bar__hex-outer:hover {
+  transform: scale(1.1);
+  background-color: #79e6f2;
+}
+.nav-bar__hex-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 120px;
+  min-width: 105px;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+  background-image: radial-gradient(#0b1a26, #123159);
+  flex-direction: column;
+}
+.nav-bar__btn {
+  text-decoration: none;
 }
 
-.footer-nav {
+.page-body__section {
+  border-bottom: 3px solid #79e6f2;
+  font-weight: bolder;
+  padding: 0 10%;
+}
+.page-body__section > article {
+  padding: 0 5%;
+}
+.page-body__footer {
+  background-color: rgba(18, 49, 89, 0.7);
+  padding-left: 10%;
+}
+
+.section__heading {
+  text-indent: 10%;
+  border-bottom: 1px solid #79e6f2;
+}
+
+.footer-nav-bar {
   display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  text-align: center;
+}
+.footer-nav-bar__list {
+  text-align: left;
 }

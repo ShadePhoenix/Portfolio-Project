@@ -11,6 +11,14 @@
     scroll-behavior: smooth;
 }
 
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+    font-size: 48px !important;
+    @media screen and (max-width: 600px) {
+        font-size: 32px !important;
+    }
+}
+
 html {
     background-image: url(../images/shutterstock_295846730.jpg);
     background-size: cover;
@@ -25,7 +33,7 @@ html {
     align-items: $align-items;
 }
 
-@mixin chamfer($chamfer) {
+@mixin chamferCornersSqr($chamfer) {
     clip-path: polygon(
         $chamfer 0%,
         calc(100% - $chamfer) 0%,
@@ -39,15 +47,37 @@ html {
 }
 
 .page-body {
-    @include chamfer(20px);
+    @include chamferCornersSqr(50px);
     padding: 15px;
     background-color: rgba($color: $hyperspace-3, $alpha: 0.6);
     &__header {
         @include flex(space-around);
+
+        padding: 30px 0;
+        border-bottom: 3px solid $space-gate-4;
+        @media screen and (max-width: 600px) {
+            flex-direction: column;
+            text-align: center;
+        }
     }
     &__sub-heading {
         margin: 3px 0;
         text-align: right;
+        @media (max-width: 600px) {
+            text-align: center;
+        }
+    }
+    &__section {
+        border-bottom: 3px solid $space-gate-4;
+        font-weight: bolder;
+        padding: 0 10%;
+    }
+    &__section > article {
+        padding: 0 5%;
+    }
+    &__footer {
+        background-color: rgba($color: $hyperspace-1, $alpha: 0.7);
+        padding-left: 10%;
     }
 }
 
@@ -69,6 +99,7 @@ html {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    margin-top: 20px;
     &__hex {
         &-outer {
             margin: 5px;
@@ -76,33 +107,30 @@ html {
             @include hex(130px);
             background-color: rgba($color: $space-gate-4, $alpha: 0.7);
             @include hex-hover();
+            @media (max-width: 600px) {
+                @include hex(60px);
+            }
         }
         &-inner {
             @include flex();
             @include hex(120px);
             background-image: radial-gradient($hyperspace-4, $hyperspace-1);
             flex-direction: column;
+            @media (max-width: 600px) {
+                @include hex(55px);
+            }
         }
     }
     &__btn {
         text-decoration: none;
+        &--hide-text {
+            @media (max-width: 600px) {
+                display: none;
+            }
+        }
     }
-}
-
-.page-body {
-    &__header {
-    }
-    &__section {
-        border-bottom: 3px solid $space-gate-4;
-        font-weight: bolder;
-        padding: 0 10%;
-    }
-    &__section > article {
-        padding: 0 5%;
-    }
-    &__footer {
-        background-color: rgba($color: $hyperspace-1, $alpha: 0.7);
-        padding-left: 10%;
+    &__btn span:first-of-type {
+        scale: 200%;
     }
 }
 

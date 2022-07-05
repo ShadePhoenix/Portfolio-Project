@@ -1,5 +1,2 @@
-@font-face {
-    font-family: SpaceMono;
-    src: url(../../fonts/Space_Mono/SpaceMono-Regular.ttf);
-}
-$SpaceMono: SpaceMono;
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+$SpaceMono: "Space Mono", monospace;
